@@ -6,14 +6,14 @@ const items = [
 ];
 
 const ProductCard = (title, price) => {
-    return `<div class="product-list"><h3>${title}</h3><p>${price}$</p><button class="btn">Добавить</button></div>`;
+    return `<div class="catalog"><h3>${title}</h3><p>${price}$</p><button class="btn">Добавить</button></div>`;
 };
 
 
 const GenerateCatalog = list => {
-    let productList = list.map(item => ProductCard(item.title, item.price)).join(' ');
-    console.log(productList);
-    document.querySelector('.catalog').innerHTML = productList;
+    let ProductList = list.map(item => ProductCard(item.title, item.price)).join(' ');
+    console.log(ProductList);
+    document.querySelector('.catalog').innerHTML = ProductList;
 }
 
 GenerateCatalog(items);
