@@ -21,17 +21,17 @@ class CartItemsList {
         for (const cartProduct of this.CartItems) {
             const CartItemObj = new CartItem(cartProduct);
             this.CartItemsObj.push(CartItemObj);
-            block.insertAdjacentHTML('beforeend', CartItemObj.GetHtmlString());
+            block.insertAdjacentHTML('beforebegin', CartItemObj.GetHtmlString());
         }
     }
-
-    total(CartItemsObj) {
-        const res = this.CartItemsObj;
-        for (let i = 0; i <= this.CartItemsObj.length - 1; i++) {
-            let cartprice = res[i].price;
-            console.log(cartprice);
+    total() {
+        const totalItems = this.CartItemsObj;
+        let sum = 0;
+        for (let key in totalItems) {
+            sum += totalItems[key].price;
         }
-
+        console.log(sum);
+        document.querySelector('.cart__total').innerHTML = sum;
     }
 }
 class CartItem {
@@ -43,14 +43,14 @@ class CartItem {
         this.DelBtnTitle = DelBtnTitle;
     }
     GetHtmlString() {
-        return `<div class="item__card cart_card" data-id="${this.id}">
-                    <img src=${this.img} alt = "img">
-                    <div class = "content">
-                        <h3>${this.title}</h3>
-                        <p>${this.price}$</p>
-                        <button class="btn">${this.DelBtnTitle}</button>
-                    </div>
-                </div>`;
+        return `<div class="item__card cart_card" data - id="${this.id}">
+            <img src=${this.img} alt="img">
+                <div class="content">
+                    <h3>${this.title}</h3>
+                    <p>${this.price}$</p>
+                    <button class="btn">${this.DelBtnTitle}</button>
+                </div>
+            </div>`;
     }
 }
 

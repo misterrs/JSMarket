@@ -28,7 +28,7 @@ header {
 
 .cart-button {
   background: none;
-  width: 5%;
+  width: 10%;
   outline: none;
   border: none;
   font-size: large;
@@ -41,7 +41,7 @@ header {
   align-items: center;
 }
 .cart-button:hover {
-  width: 10%;
+  width: 20%;
   background-color: orange;
   color: black;
   transition: 1s;
@@ -49,6 +49,7 @@ header {
 
 main {
   background-color: white;
+  padding-bottom: 50px;
 }
 
 .container {
@@ -151,13 +152,31 @@ main {
   background: none;
 }
 
+.total__title {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0px 100px 60px 0;
+}
+.total__title h3 {
+  font-size: 32px;
+}
+.total__title span {
+  font-size: 32px;
+}
+
+.cart__total {
+  font-size: 32px;
+}
+
 footer {
-  width: 100%;
+  display: flex;
   position: fixed;
-  background-color: black;
+  height: 50px;
   bottom: 0;
-  padding: 20px;
+  width: 100%;
+  background-color: black;
   border-top: 4px solid orange;
+  align-items: center;
 }
 footer h2 {
   color: #777;
