@@ -43,5 +43,4 @@ class ProductItem {
                 </div>`;
     }
 }
-
 const genCatalogList = new ProductList;
