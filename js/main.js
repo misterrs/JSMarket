@@ -131,7 +131,7 @@ class ProductsList extends List {
     });
     document.querySelector('.header__search_form').addEventListener('submit', e => {
       e.preventDefault();
-      this.filter(document.querySelector('.header__search-field').value)
+      this.filter(document.querySelector('.header__search_field').value)
     })
   }
 }

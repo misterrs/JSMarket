@@ -27,6 +27,7 @@ a {
   padding: 30px 0;
   background: none;
   flex-wrap: wrap;
+  margin: 0 auto;
 }
 
 .header {
@@ -97,6 +98,10 @@ a {
   width: 60%;
   padding: 10px;
   outline: none;
+  color: gray;
+  background-color: rgba(209, 209, 209, 0.137);
+  outline: none;
+  border: 2px solid orange;
 }
 .header__search_btn {
   cursor: pointer;
