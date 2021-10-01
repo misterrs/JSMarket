@@ -40,8 +40,57 @@ a {
     &__title{
         color: orange;
         span {
-            color: orangered;
+            color: darkgray;
             font-size: 42px;
+        }
+    }
+    &__login {
+        position: sticky;
+        box-sizing: border-box;
+        left: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        position: absolute;
+        background-color: gray;
+        padding: 20px;
+        color: black;
+        width: 20%;
+        transition: 2s;
+        height: 100%;
+        opacity: 0.9;
+        border-right: 3px solid orange;
+        z-index: 999;
+        form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+            input {
+                outline: none;
+                border: 1px solid black;
+                margin: 10px 0;
+                padding: 10px;
+            }
+            button {
+                margin: 10px 0;
+                padding: 10px;
+                background: none;
+                border: none;
+                border-bottom: 3px solid orange;
+                transition: 1s;
+                cursor: pointer;
+                &:hover {
+                    background-color: orange;
+                    transition: 1s;
+                }
+            }
+        }
+        h2 {
+            margin: 30px auto;
+            text-align: center;
+            color: lightgray;
         }
     }
     &__cart {
@@ -71,21 +120,22 @@ a {
             position: sticky;
             box-sizing: border-box;
             right: 0;
-            top: 15%;
+            top: 0;
             flex-wrap: wrap;
             position: absolute;
-            background-color: white;
+            background-color: gray;
             padding: 20px;
             color: black;
             width: 20%;
             transition: 2s;
-            height: 70%;
+            height: 100%;
             opacity: 0.9;
             border-left: 3px solid orange;
+            z-index: 999;
             h2 {
                 margin: 30px auto;
                 text-align: center;
-                color: whitesmoke;
+                color: lightgray;
             }
         }
     }
@@ -120,10 +170,22 @@ a {
     }
     
 }
+.noDisplay {
+    opacity: 0;
+    transition: 2s;
+    form {
+        display: none;
+    }
+}
 .invisible{
-    // left: -100%;
     transition: 2s;
     opacity: 0;
+    button {
+        display: none;
+    }
+    .cart-item {
+        display: none;
+    }
 }
 .buy-btn, .del-btn{
     background: none;

@@ -23,15 +23,37 @@
                         Search
                     </button>
                 </form>
-                <button class="header__cart_logBtn">SignIn/LogIn</button>
+                <button class="header__cart_logBtn" type="button">SignIn/LogIn</button>
                 <button class="header__cart_button" type="button">Корзина</button>
                 <div class="header__cart_display"></div>
             </div>
+            <div class="header__login noDisplay">
+                <h2>SignIn</h2>
+                <form action="#" class="header__login_reg">
+                    <input type="text" class="header__login_name">
+                    <input type="tel" class="header__login_tel">
+                    <input type="email" class="header__login_email">
+                    <input type="date" class="header__login_date">
+                    <input type="password" class="header__login_pass">
+                    <article>
+                        <input type="radio" id="male" name="sex" value="male"><label for="sex">M</label>
+                        <input type="radio" id="female" name="sex" value="female"><label for="sex">W</label>
+                    </article>
+                    <button type="submit" class="reg_btn">Registration</button>
+                </form>
+                <h2>Login</h2>
+                <form action="#" class="header__login_log">
+                    <input type="email" class="header__login_email">
+                    <input type="password" class="header__login_pass">
+                    <button type="submit" class="log_btn">LogIN</button>
+                </form>
+            </div>
         </div>
 
-        <div class="header__cart_overlay invisible container">
+        <div class="header__cart_overlay invisible">
             <h2>CART</h2>
         </div>
+
     </header>
 
 

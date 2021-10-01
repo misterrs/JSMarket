@@ -112,9 +112,8 @@ class Item {
   }
 }
 
-/**
- * Наследуемся от базовых классов
- */
+// extends from Bases class
+
 class ProductsList extends List {
   constructor(cart, container = '.wrapper', url = "/catalogData.json") {
     super(url, container);
@@ -238,6 +237,11 @@ class Cart extends List {
   }
 
 }
+// Registratiron form
+
+document.querySelector('.header__cart_logBtn').addEventListener('click', function () {
+  document.querySelector('.header__login').classList.toggle('noDisplay');
+});
 
 class CartItem extends Item {
   constructor(el, img = 'https://via.placeholder.com/50x100') {

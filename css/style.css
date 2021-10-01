@@ -42,8 +42,57 @@ a {
   color: orange;
 }
 .header__title span {
-  color: orangered;
+  color: darkgray;
   font-size: 42px;
+}
+.header__login {
+  position: sticky;
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: absolute;
+  background-color: gray;
+  padding: 20px;
+  color: black;
+  width: 20%;
+  transition: 2s;
+  height: 100%;
+  opacity: 0.9;
+  border-right: 3px solid orange;
+  z-index: 999;
+}
+.header__login form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+.header__login form input {
+  outline: none;
+  border: 1px solid black;
+  margin: 10px 0;
+  padding: 10px;
+}
+.header__login form button {
+  margin: 10px 0;
+  padding: 10px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid orange;
+  transition: 1s;
+  cursor: pointer;
+}
+.header__login form button:hover {
+  background-color: orange;
+  transition: 1s;
+}
+.header__login h2 {
+  margin: 30px auto;
+  text-align: center;
+  color: lightgray;
 }
 .header__cart {
   position: relative;
@@ -73,22 +122,23 @@ a {
   position: sticky;
   box-sizing: border-box;
   right: 0;
-  top: 15%;
+  top: 0;
   flex-wrap: wrap;
   position: absolute;
-  background-color: white;
+  background-color: gray;
   padding: 20px;
   color: black;
   width: 20%;
   transition: 2s;
-  height: 70%;
+  height: 100%;
   opacity: 0.9;
   border-left: 3px solid orange;
+  z-index: 999;
 }
 .header__cart_overlay h2 {
   margin: 30px auto;
   text-align: center;
-  color: whitesmoke;
+  color: lightgray;
 }
 .header__search_form {
   width: 60%;
@@ -117,9 +167,23 @@ a {
   transition: 1s;
 }
 
+.noDisplay {
+  opacity: 0;
+  transition: 2s;
+}
+.noDisplay form {
+  display: none;
+}
+
 .invisible {
   transition: 2s;
   opacity: 0;
+}
+.invisible button {
+  display: none;
+}
+.invisible .cart-item {
+  display: none;
 }
 
 .buy-btn, .del-btn {
