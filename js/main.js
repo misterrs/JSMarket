@@ -112,6 +112,40 @@ class Item {
   }
 }
 
+class cantrol {
+  constructor(form) {
+    this.fields = {
+      login: /^[a-zа-яё]+$/i,
+      phone: /^\+7\(\d{3}\)\d{3}-\d{4}$/i,
+      email: /^[\w._-]+@\w+\.[a-z]{2,4}$/i,
+      password: /^[\a-z0-9]+.{8}$/i
+    };
+    this.errors = {
+      login: 'поле "LOGIN" может содержать только буквы',
+      phone: 'поле телефон должно быть заполенно в формате +7(000)000-0000',
+      email: 'поле email должно соответвоать формату mail@mail.ru',
+      password: 'пароль обязательно должен содержать заглавные, прописные буквы и цифры и длинной не менее 8 символов'
+    };
+    this.errorClass = 'error-msg';
+    this.form = form;
+    this.validInfo = false;
+    this.controlInfo();
+  }
+  controlInfo() {
+    let errors = document.getElementById(this.form).querySelectorAll(`${this.errorClass}`);
+    let formFields = document.getElementById(thi.form).getElementsByTagName('input');
+    for (let field of formFields) {
+      this.control(field);
+    }
+    if (!document.getElementById(this.form).querySelectorAll('invalid').length) {
+      this.validInfo = true;
+    }
+  }
+  control(field) {
+
+  }
+}
+
 // extends from Bases class
 
 class ProductsList extends List {
@@ -237,12 +271,6 @@ class Cart extends List {
   }
 
 }
-// Registratiron form
-
-document.querySelector('.header__cart_logBtn').addEventListener('click', function () {
-  document.querySelector('.header__login').classList.toggle('noDisplay');
-});
-
 class CartItem extends Item {
   constructor(el, img = 'https://via.placeholder.com/50x100') {
     super(el, img);
@@ -264,6 +292,20 @@ class CartItem extends Item {
         </div>
         </div>`
   }
+}
+// Registratiron form
+
+document.querySelector('.header__cart_logBtn').addEventListener('click', function () {
+  document.querySelector('.header__login').classList.toggle('noDisplay');
+});
+
+window.onload = () => {
+  document.getElementById('registration').addEventListener('submit', e => {
+    const validInfo = new control('registration');
+    if (!validInfo.validInfo) {
+      e.preventDefault();
+    }
+  });
 }
 
 const listContext = {

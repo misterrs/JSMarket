@@ -29,22 +29,23 @@
             </div>
             <div class="header__login noDisplay">
                 <h2>SignIn</h2>
-                <form action="#" class="header__login_reg">
-                    <input type="text" class="header__login_name">
-                    <input type="tel" class="header__login_tel">
-                    <input type="email" class="header__login_email">
+                <form action="#" id="registration" class="header__login_reg">
+                    <input type="text" class="header__login_name" placeholder="Login">
+                    <input type="tel" class="header__login_tel" placeholder="Phone">
+                    <input type="email" class="header__login_email" placeholder="email@email.ru">
                     <input type="date" class="header__login_date">
-                    <input type="password" class="header__login_pass">
+                    <input type="password" class="header__login_pass" placeholder="password">
                     <article>
+                        <span>Укажите пол</span>
                         <input type="radio" id="male" name="sex" value="male"><label for="sex">M</label>
                         <input type="radio" id="female" name="sex" value="female"><label for="sex">W</label>
                     </article>
                     <button type="submit" class="reg_btn">Registration</button>
                 </form>
                 <h2>Login</h2>
-                <form action="#" class="header__login_log">
-                    <input type="email" class="header__login_email">
-                    <input type="password" class="header__login_pass">
+                <form action="#" id="login" class="header__login_log">
+                    <input type="email" class="header__login_email" placeholder="email@mail.ru">
+                    <input type="password" class="header__login_pass" placeholder="Password">
                     <button type="submit" class="log_btn">LogIN</button>
                 </form>
             </div>
