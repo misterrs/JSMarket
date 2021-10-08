@@ -5,17 +5,101 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eShop</title>
+    <link rel="stylesheet" href="Clear JS/css/style.css">
+    <title>Document</title>
 </head>
 
 <body>
-    <header>
-        <button class="cart-button" type="button">Корзина</button>
-    </header>
-    <main>
-        <div class="catalog"></div>
-    </main>
-    <script src="js/script.js"></script>
+    <div id="app">
+        <header class="header">
+            <div class="container container__flex">
+                <div class="header__title">
+                    <h1><a href="#"><span>PER</span>formance</a></h1>
+                </div>
+
+                <div class="header__cart">
+                    <form action="#" class="header__search_form" @submit.prevent="search">
+                        <input type="text" class="header__search_field" v-model="searchInput">
+                        <button class="header__search_btn" type="submit">
+                            Search
+                        </button>
+                    </form>
+                    <button class="header__cart_logBtn" type="button"
+                        @click="invisibleSignIn = !invisibleSignIn">SignIn/LogIn</button>
+                    <button class="header__cart_button" type="button"
+                        @click="invisibleCart = !invisibleCart">Корзина</button>
+
+                    <div class="header__cart_display">
+
+                    </div>
+
+                </div>
+                <div class="header__login" v-show="invisibleSignIn">
+                    <h2>SignIn</h2>
+                    <form action="#" class="header__login_reg">
+                        <input type="text" class="header__login_name">
+                        <input type="tel" class="header__login_tel">
+                        <input type="email" class="header__login_email">
+                        <input type="date" class="header__login_date">
+                        <input type="password" class="header__login_pass">
+                        <article>
+                            <input type="radio" id="male" name="sex" value="male"><label for="sex">M</label>
+                            <input type="radio" id="female" name="sex" value="female"><label for="sex">W</label>
+                        </article>
+                        <button type="submit" class="reg_btn">Registration</button>
+                    </form>
+                    <h2>Login</h2>
+                    <form action="#" class="header__login_log">
+                        <input type="email" class="header__login_email">
+                        <input type="password" class="header__login_pass">
+                        <button type="submit" class="log_btn">LogIN</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="header__cart_overlay" v-show="invisibleCart">
+                <p v-if="!cartGoods.length">cart is ampty</p>
+                <div class="cart__product" v-for="product in cartGoods" :key="product.id_product">
+                    <div class="product_content">
+                        <img :src="imgCart" alt="imgCart">
+                        <div class="description">
+                            <p class="product_title">{{product.product_name}}</p>
+                            <p class="product_quantity">Quantity:{{product.quantity}}</p>
+                            <p class="product_price">Price:{{product.price}}р.</p>
+                        </div>
+                    </div>
+                    <div class="cart__total">
+                        <p class="cart__total_price">Total:{{product.quantity*product.price}}р.</p>
+                        <button class="del_btn" @click="remove(product)">delete</button>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+
+
+        <main class="content">
+            <div class="container">
+                <div class="wrapper">
+                    <div class="goods_item" v-bind:id="good.id" v-for="good in found">
+                        <img :src="imgCatalog" alt="img">
+                        <h3>{{good.product_name}}</h3>
+                        <p>{{good.price}}P</p>
+                        <button class="buy-btn" @click="addProduct(good)">add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
+        <footer>
+            <div class="container">
+                <h2>PERformance</h2>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="JSvue/script.js"></script>
 </body>
 
 </html>
