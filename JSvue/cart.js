@@ -1,28 +1,13 @@
-const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
-
-const app = new Vue({
-    el: '#app',
-    data: {
-        searchInput: '',
-        invisibleCart: false,
-        invisibleSignIn: false,
-        catalogUrl: '/catalogData.json',
-        cartUrl: '/getBasket.json',
-        goods: [],
-        cartGoods: [],
-        found: [],
-        imgCatalog: "https://via.placeholder.com/500x200",
-        imgCart: "https://via.placeholder.com/500x200",
+Vue.component('cart', {
+    data() {
+        return {
+            invisibleCart: false,
+            cartUrl: '/getBasket.json',
+            cartGoods: [],
+            imgCart: "https://via.placeholder.com/500x200",
+        }
     },
     methods: {
-        getJson(url) {
-            return fetch(url)
-                .then(result => result.json())
-                .catch(error => {
-                    console.log(error);
-                })
-        },
-
         addProduct(product) {
             this.getJson(`${API}/addToBasket.json`)
                 .then(data => {
@@ -51,24 +36,15 @@ const app = new Vue({
                     }
                 })
         },
-        search() {
-            let regexp = new RegExp(this.searchInput, 'i');
-            this.found = this.goods.filter(el => regexp.test(el.product_name));
-        }
     },
     mounted() {
-        this.getJson(`${API + this.catalogUrl}`)
-            .then(data => {
-                for (let el of data) {
-                    this.goods.push(el);
-                    this.found.push(el);
-                }
-            });
         this.getJson(`${API + this.cartUrl}`)
             .then(data => {
                 for (let el of data.contents) {
                     this.cartGoods.push(el);
                 }
             });
-    },
+    }
+
 });
+
