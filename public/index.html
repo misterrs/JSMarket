@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Clear JS/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 
@@ -70,7 +70,7 @@
                     </div>
                     <div class="cart__total">
                         <p class="cart__total_price">Total:{{product.quantity*product.price}}р.</p>
-                        <button class="del_btn" @click="remove(product)">delete</button>
+                        <button class="del_btn" @click="$emit('remove', cartItem)">delete</button>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,8 @@
                         <img :src="imgCatalog" alt="img">
                         <h3>{{good.product_name}}</h3>
                         <p>{{good.price}}P</p>
-                        <button class="buy-btn" @click="addProduct(good)">add to cart</button>
+                        <button class="buy-btn" @click="addProduct(good)">add to
+                            cart</button>
                     </div>
                 </div>
             </div>
@@ -99,7 +100,9 @@
         </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
-    <script src="JSvue/script.js"></script>
+    <script src="JSvue/app.js"></script>
+    <script src="JSvue/cart.js"></script>
+    <script src="JSvue/search.js"></script>
 </body>
 
 </html>
